@@ -1,0 +1,12 @@
+package:
+  name: deps
+  version: "0.0.1"
+
+build:
+  script: python setup.py install
+
+source:
+  path: ../
+
+about:
+  home: https://github.com/malev/deps
