@@ -5,6 +5,12 @@ package:
 build:
   script: python setup.py install
 
+requirements:
+  build:
+    - pyyaml
+  run:
+    - pyyaml
+
 source:
   path: ../
 
