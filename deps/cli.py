@@ -1,7 +1,7 @@
 '''In the shouth you can say: "fix me a sandwich".
 Here you'll say: "fix me an environment"
-    fix install
-    fix install --dry-run
+    deps install
+    deps install --dry-run
 '''
 
 from __future__ import absolute_import
@@ -36,8 +36,12 @@ def build_pip_cmd(specs, **kwargs):
 
 
 def parse():
-    with open('environment.yml', 'r') as envfile:
-        parsed = yaml.load(envfile)
+    try:
+        with open('environment.yml', 'r') as envfile:
+            parsed = yaml.load(envfile)
+    except:
+        print("[Error] You will need an environment.yml file")
+        sys.exit(1)
     conda_deps = []
     pip_deps = []
     channels = parsed.get('channels', [])
