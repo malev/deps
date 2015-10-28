@@ -7,8 +7,10 @@ build:
 
 requirements:
   build:
+    - python
     - pyyaml
   run:
+    - python
     - pyyaml
 
 source:
