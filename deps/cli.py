@@ -1,4 +1,4 @@
-'''In the shouth you can say: "fix me a sandwich".
+'''In the Shouth you can say: "fix me a sandwich".
 Here you'll say: "fix me an environment"
     deps install
     deps install --dry-run
@@ -20,7 +20,7 @@ def print_cmd(cmd):
 
 
 def build_conda_cmd(specs, channels=[]):
-    conda_cmd = ['conda', 'install', '-y'] + specs
+    conda_cmd = ['conda', 'install'] + specs
     if len(channels) > 0:
         channels_cmd = []
         for channel in channels:
@@ -77,5 +77,11 @@ def main():
             not_install()
         else:
             install()
+    elif 'conda' in sys.argv:
+        print(" ".join(parse()[0]))
+    elif 'pip' in sys.argv:
+        print(" ".join(parse()[1]))
+    elif 'channels' in sys.argv:
+        print(" ".join(parse()[2]))
     else:
         print(__doc__)
